@@ -27,9 +27,9 @@ Asheville NC USA
 ----
 == DRY, Acmeism, Modules and Packaging
 
-* These things are the major themes in my life's work
+* These are my Personal Passions
 * I want to push their ideals as far as possible
-* That's what this talk is about
+* That's what this talk is about...
 
 ----
 == DRY?
@@ -40,7 +40,8 @@ Asheville NC USA
 
 +* Duplication is everywhere
 * Finding ways to eliminate it is the Mother of Invention
-* Computers should program computers
+
++* Computers should program computers
 * Programmers should drink beer
 
 ----
@@ -56,27 +57,34 @@ Asheville NC USA
 * C'Dent
 * TestML
 * Stardoc
+* Pegex
+* JSYNC
+
+    http://acmeism.org
 
 ----
 == Modules?
 
 * Modules are the Sweet Spot of modern programming
   * Programming approaches a series of 'use ...;' statements
+
 * Modules encapulate ideas
   * Software IC-s (Idea Containers)
-* Named collaboration points
+
 * All modern languages have modules and infrastructure
   * Perl has the best
+
 * Modules are the focus of my Acmeism
+  * C'Dent is a *Module* programming language
 
 ----
 == Packaging?
 
-+* All Code is Shit
++All your Code is Shit
 
-+* But if you package your code nicely, you can get...
++But if you package your code nicely, you can get...
 
-+* A Turd in a Box!
++A Turd in a Box!
 
 +This is a good thing!
 
@@ -90,6 +98,7 @@ Asheville NC USA
 * Reuse
 * Improvement
 * Group lovin'
+
 * stackoverflow
 * Bash Modules
 
@@ -106,6 +115,7 @@ Also:
 * Scripts
 * Files
 * Author tools
+
 ----
 == Ingy's Packaging Goals
 
@@ -225,7 +235,7 @@ WriteAll;
 ---- perl
 # Same thing with Module::Package
 
-use inc::Module::Package 'Ingy:modern 0.12';
+use inc::Module::Package 'Ingy:modern 0.13';
 
 ----
 == Module::Package (revisited)
@@ -234,6 +244,10 @@ use inc::Module::Package 'Ingy:modern 0.12';
 * Solves M:I bloat
 * Solves collab author dep problem
 * bin/ and share/ for free
+
+All I need to do to stay modern is:
+
+    perl Makefile.PL
 
 ----
 == Module::Package Plugins
@@ -283,6 +297,9 @@ use inc::Module::Package 'Ingy:modern 0.12';
 ----
 == Package.pm
 
+    > pkg --perl=dzil --module=Foo::Bar
+    > pkg --bash --module=lalala
+
 * Acmeist Module::Starter
 * Perl
   * Standard
@@ -293,6 +310,37 @@ use inc::Module::Package 'Ingy:modern 0.12';
 * Python
 * Bash
 * Roll your own easily
+
+----
+== Conclusion
+
+The Tech World is at Wars
+
+* Good vs Evil
+* Cloud vs LulzSec
+* Social vs Privacy
+* Acmeism vs Java
+* Ideas vs Extinction
+
+----
+== Conclusion
+
+Programming needs to be:
+
+* Simple
+* Complete
+* Prolific
+
+----
+== Conclusion
+
+Challenge:
+
+* If you've never written a CPAN module, write one this year.
+
+* If you've never written a PyPI module, port a Perl module.
+
+* Publish 1000 ideas before you die.
 
 ----
 == The End
