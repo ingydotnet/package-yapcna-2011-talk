@@ -1,76 +1,300 @@
-# This is a sample Vroom input file. It should help you get started.
-#
-# Edit this file with your content. Then run `vroom --vroom` to start
-# the show!
-#
-# See `perldoc Vroom` for complete details.
-#
 ---- config
-# Basic config options.
-title: Vroom!
+title: Postmodern Module Packaging
 indent: 5
-height: 18
-width: 69
+height: 24
+width: 75
 skip: 0
 
-# The following options are for Gvim usage.
-# vim: gvim
-# gvimrc: |
-#   set fuopt=maxhorz,maxvert
-#   set guioptions=egmLtT
-#   set guifont=Bitstream_Vera_Sans_Mono:h18
-#   set guicursor=a:blinkon0-ver25-Cursor
-#   colorscheme default
-
 ---- center
-Vroom!
+Postmodern Module Packaging
 
 by Ingy döt Net
 
-(hint: press the spacebar)
+YAPC::NA
+
+June 28 2011
+
+Asheville NC USA
 
 ----
-== Slideshows in Vim
+== Ingy döt Net
 
-* Hate using PowerPoint or HTML Slides for Talks?
-+* Use Vroom!
-
-+* You can write you slides in Vim...
-* ...and present them in Vim!
-
-----
-== Getting Started
-
-* Write a file called 'slides.vroom'.
-  * Do this in a new directory.
-* Run 'vroom --vroom'.
-* Voilà!
+* YAML
+* CPAN
+* PyPI
+* YAPC
 
 ----
-== Navigation
+== DRY, Acmeism, Modules and Packaging
 
-* Hit <SPACE> to move forward.
-* Hit <BACKSPACE> to go backwards.
-* Hit 'Q' to quit.
-
----- perl,i4
-# This is some Perl code.
-# Notice the syntax highlighting.
-# Run it with the <RR> vim command.
-for my $word (qw(Vroom totally rocks!)) {
-    print "$word\n";
-}
+* These things are the major themes in my life's work
+* I want to push their ideals as far as possible
+* That's what this talk is about
 
 ----
-== Get Vroom!
+== DRY?
 
-* http://search.cpan.org/dist/Vroom/
-* http://github.com/ingydotnet/vroom-pm/
++* Don't Repeat Yourself
++* Every good idea I've had stems from my OCD
++  * I am Obsessively, Compulsively DRY
+
++* Duplication is everywhere
+* Finding ways to eliminate it is the Mother of Invention
+* Computers should program computers
+* Programmers should drink beer
 
 ----
-== Vroom as HTML
+== Acmeism??
 
-* http://ingydotnet.github.com/vroom-pm/
++* Sharing your best ideas as wide as possible
+* Crossing language borders
+* Cross community borders
+* P's vs J
+
++* YAML
+* Jemplate
+* C'Dent
+* TestML
+* Stardoc
+
+----
+== Modules?
+
+* Modules are the Sweet Spot of modern programming
+  * Programming approaches a series of 'use ...;' statements
+* Modules encapulate ideas
+  * Software IC-s (Idea Containers)
+* Named collaboration points
+* All modern languages have modules and infrastructure
+  * Perl has the best
+* Modules are the focus of my Acmeism
+
+----
+== Packaging?
+
++* All Code is Shit
+
++* But if you package your code nicely, you can get...
+
++* A Turd in a Box!
+
++This is a good thing!
+
++If you are going to share your shit with the world...
+
++...at least put it in a colorful box with ribbons and bows!
+
+----
+== All code needs a home
+
+* Reuse
+* Improvement
+* Group lovin'
+* stackoverflow
+* Bash Modules
+
+----
+== What's in the Package?
+
+* Code
+* Tests
+* Docs
+* Installer
+* Wrapper
+
+Also:
+* Scripts
+* Files
+* Author tools
+----
+== Ingy's Packaging Goals
+
++* 1000 Perl Packages
++* 1000 Perl6 Packages
++* 1000 Python Packages
++* 1000 JavaScript Packages
++* 1000 Bash Packages
+
++etc...
+
++* All from 1000 sources!
+
+----
+== The Journey of 1000 Packages...
+
++...Begins with a few new Modules
+
+----
+== MANIFEST
+
+* YamlTime
+  * YamlTime::Plugin::Git
+* App::Cmd
+  * MouseX::App::Cmd
+* Devel::Local
+* Package
+* Module::Install
+  * Module::Install::ManifestSkip
+    * Module::Manifest::Skip
+* Module::Package
+* Stardoc
+* Test::Common
+* TestML
+* File::Share
+
+----
+== YamlTime!
+
+* YamlTime is a TimeTracking application
+* It tracks time spent on tasks
+* Saves data as YAML in a git repo
+* It is written using App::Command
+
+* Demo yt
+
+----
+== YamlTime!
+
+* Show ../yamltime-extension-git-pm/
+* Show ../yamltime-pm/
+
+* Stardoc
+* App::Cmd
+* MouseX::App::Command
+
+----
+== Devel::Local
+
+*  Problem: All my modules use all my other modules
+*     Also: They are in constant development
+
+* Solution: Devel::Local
+
+* Like local::lib
+* More like ylib.pm
+* Supports PERL5LIB and PATH
+
+----
+== File::Share
+
+* A companion to Devel::Local dev
+* Like File::ShareDir
+* Finds files in dev share/ directories
+  * When appropriate
+
+* Add to YamlTime
+* make release
+
+----
+== Module::Package
+
+* Module::Package is the evolution of Module::Install
+* Let's talk about that first
+
+----
+== Module::Install
+
+* Started in 2001, iirc
+* ExtUtils::MakeMaker was stuck
+* CPAN::MakeMaker
+* autrijus++ saved CPAN from disaster
+* Module::Install ships pieces of the future in every package
+* inc/
+* Extendable with plugins
+* M:I took Makefile.PLs from black magic to a few simple lines
+
+* Module::Package takes it to its logical conclusion
+* And fixes a few problems along the way
+
+---- perl
+# Makefile.PL from boolean.pm
+
+use inc::Module::Install;
+
+all_from        'lib/boolean.pm';
+
+readme_from;
+manifest_skip;
+version_check;
+ack_xxx;
+
+recommends      'Readonly';
+
+WriteAll;
+
+---- perl
+# Same thing with Module::Package
+
+use inc::Module::Package 'Ingy:modern 0.12';
+
+----
+== Module::Package (revisited)
+
+* Almost all my Makefile.PLs are that same one line
+* Solves M:I bloat
+* Solves collab author dep problem
+* bin/ and share/ for free
+
+----
+== Module::Package Plugins
+
+* Module::Package::Plugin is the base class
+* Provides Module::Package::Plugin::basic
+  * Accessible as 'Plugin:basic'
+
+* Module::Package::Ingy
+  * Module::Package::Ingy::modern
+* Detects things like TestML or Test::Base usage
+* Implements 'make release'
+
+* show ../module-package-ingy-pm/
+
+----
+== boolean-pm
+
+* Switch boolean-pm to Module::Package
+
+----
+== Stardoc
+
+* Combines Pod and Smart Comments
+* Writes a normal .pod for every .pm with Stardoc
+* Module::Install support
+* Wikidoc dialects coming soon
+
+----
+== Test::Common
+
+* Select from 1000s of precanned common unit tests
+* Pick from a list of ones you want
+* Never need to edit the tests
+* Get updates automatically
+* t and xt
+
+----
+== TestML
+
+* Acmeist Unit Testing
+* Successor of Test::Base
+  * Perl, JavaScript
+
+* Example ../jsync-pm/
+
+----
+== Package.pm
+
+* Acmeist Module::Starter
+* Perl
+  * Standard
+  * dzil
+  * Module::Build
+  * Module::Install
+  * Module::Package
+* Python
+* Bash
+* Roll your own easily
 
 ----
 == The End
+
+Any Questions?
