@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>021</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+function navigate(e) {
+    var keynum = (window.event) // IE
+        ? e.keyCode
+        : e.which;
+    if (keynum == 8) {
+        window.location = "020.pl" + ".html";
+        return false;
+    }
+    if (keynum == 13 || keynum == 32) {
+        window.location = "022" + ".html";
+        return false;
+    }
+    if (keynum == 73 || keynum == 105) {
+        window.location = "index.html";
+        return false;
+    }
+    return true;
+}
+</script>
+</head>
+<body onkeypress="return navigate(event)">
+<pre>
+
+
+
+
+
+                        Module::Package (revisited)
+     
+     * Almost all my Makefile.PLs are that same one line
+     * Solves M:I bloat
+     * Solves collab author dep problem
+     * bin/ and share/ for free
+     
+     All I need to do to stay modern is:
+     
+         perl Makefile.PL
+
+
+
+
+
+
+
+
+</pre>
+</body>

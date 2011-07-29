@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>018</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+function navigate(e) {
+    var keynum = (window.event) // IE
+        ? e.keyCode
+        : e.which;
+    if (keynum == 8) {
+        window.location = "017" + ".html";
+        return false;
+    }
+    if (keynum == 13 || keynum == 32) {
+        window.location = "019.pl" + ".html";
+        return false;
+    }
+    if (keynum == 73 || keynum == 105) {
+        window.location = "index.html";
+        return false;
+    }
+    return true;
+}
+</script>
+</head>
+<body onkeypress="return navigate(event)">
+<pre>
+
+
+
+                              Module::Install
+     
+     * Started in 2001, iirc
+     * ExtUtils::MakeMaker was stuck
+     * CPAN::MakeMaker
+     * autrijus++ saved CPAN from disaster
+     * Module::Install ships pieces of the future in every package
+     * inc/
+     * Extendable with plugins
+     * M:I took Makefile.PLs from black magic to a few simple lines
+     
+     * Module::Package takes it to its logical conclusion
+     * And fixes a few problems along the way
+
+
+
+
+
+
+
+</pre>
+</body>
